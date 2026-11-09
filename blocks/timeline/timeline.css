@@ -1,0 +1,104 @@
+/* blocks/timeline/timeline.css */
+.timeline ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline .timeline-item {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.timeline .timeline-dates,
+.timeline .timeline-body {
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--light-color);
+}
+
+.timeline .timeline-dates {
+  font-size: 0.9em;
+  color: var(--dark-color);
+}
+
+.timeline .timeline-body {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.timeline .timeline-body::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 0.4em;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid var(--link-color);
+  background: var(--background-color);
+}
+
+.timeline .timeline-now .timeline-body::before {
+  background: var(--link-color);
+}
+
+.timeline .timeline-now .timeline-dates {
+  color: var(--link-color);
+  font-weight: 600;
+}
+
+.timeline .timeline-item:last-child .timeline-body {
+  border-left-color: transparent;
+}
+
+.timeline .timeline-summary p {
+  margin: 0.25em 0;
+}
+
+.timeline .timeline-title p {
+  margin: 0;
+}
+
+.timeline .timeline-title p + p {
+  font-size: 0.9em;
+  color: var(--dark-color);
+}
+
+.timeline .timeline-title p:first-child {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.timeline .timeline-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.timeline .timeline-tags li {
+  font-size: 0.8em;
+  padding: 0.1em 0.6em;
+  border-radius: 1em;
+  background: var(--light-color);
+}
+
+.timeline.compact .timeline-summary {
+  display: none;
+}
+
+@media (width >= 600px) {
+  .timeline .timeline-item {
+    grid-template-columns: 8rem 1fr;
+    gap: 0 1.5rem;
+  }
+
+  .timeline .timeline-dates {
+    border-left: none;
+    padding-left: 0;
+    text-align: right;
+  }
+}
